@@ -8,7 +8,7 @@ app = MultiPage()
 
 
 # Add all your application here
-app.add_page("Main Page", main.app)
+app.add_page("Main Page ", main.app)
 app.add_page("Player Comparison", player_comparison.app)
 
 

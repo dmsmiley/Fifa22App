@@ -130,7 +130,7 @@ def app():
     st.sidebar.write(' ')
     st.sidebar.write(' ')
     st.sidebar.markdown("### Need Help Selecting a Player?")
-    country_club = st.sidebar.selectbox('What Country is Their Club In?', list(df['Club Country'].unique()))
+    country_club = st.sidebar.selectbox('What Country is Their Club In? ', list(df['Club Country'].unique()))
     league = st.sidebar.selectbox('What League is Their Club in?', list(df['Club League'][df['Club Country'] == country_club].unique()))
     club = st.sidebar.selectbox('What Club Do They Play For?', list(df['Club'][df['Club League'] == league].unique()))
     player = st.sidebar.selectbox('Who is the Player?', list(df[df['Club'] == club].index.values))
