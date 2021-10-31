@@ -1,9 +1,12 @@
 import streamlit as st
 import numpy as np
-from PIL import  Image
+import requests
+from io import BytesIO
+from PIL import Image
 
 def app():
-    display = Image.open('logo.jpeg')
+    response = requests.get("https://images.unsplash.com/photo-1606925797300-0b35e9d1794e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1162&q=80")
+    display = Image.open(BytesIO(response.content))
     display = np.array(display)
     # st.image(display, width = 400)
     # st.title("Data Storyteller Application")
