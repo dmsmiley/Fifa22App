@@ -19,6 +19,3 @@ def app():
     with col2:
         st.title("Analytics with FIFA 22")
         st.markdown('###### Streamlit App by [David Smiley](https://www.linkedin.com/in/david-m-smiley/)')
-
-    """Photo by <a href="https://unsplash.com/@mahdi17?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Md Mahdi</a> on <a href="https://unsplash.com/s/photos/soccer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-  """
