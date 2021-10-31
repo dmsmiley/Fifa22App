@@ -124,7 +124,6 @@ def app():
 
         display_df = pd.DataFrame(list(zip(player_1_stat_list,player_2_stat_list,stats)), columns = [player_1,player_2,"Stats"]).set_index("Stats").style.highlight_max(color='#FFF8DC', axis=1)
 
-
         st.dataframe(display_df)
 
     #Sidebar
