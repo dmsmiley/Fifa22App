@@ -1,14 +1,12 @@
 import streamlit as st
 import plotly.graph_objects as go
 import pandas as pd
+import numpy as np
 
 def app():
 
     data_file = 'fifa22data.csv'
     df = pd.read_csv(data_file, index_col='FullName')
-
-
-    st.subheader('Streamlit App by [David Smiley](https://www.linkedin.com/in/david-m-smiley/)')
 
     #User Selection _____________________________
 
@@ -22,7 +20,6 @@ def app():
 
 
     photo_2 = df.loc[player_2]['PhotoUrl']
-
 
 
     col1_1, col2_1 = st.columns(2)
@@ -119,19 +116,20 @@ def app():
 
     with expander:
 
-        stats_df = df.loc[[player_1,player_2]][add_stats].reset_index()
+        stats_df = df.loc[[player_1,player_2]][add_stats]
 
         player_1_stat_list = list(stats_df.iloc[0][1:])
         player_2_stat_list = list(stats_df.iloc[1][1:])
         stats = list(stats_df.columns[1:])
 
+        display_df = pd.DataFrame(list(zip(player_1_stat_list,player_2_stat_list,stats)), columns = [player_1,player_2,"Stats"]).set_index("Stats").style.highlight_max(color='#FFF8DC', axis=1)
 
-        display_df = pd.DataFrame(list(zip(player_1_stat_list,player_2_stat_list,stats)), columns = [player_1,player_2,"Stats"])[[player_1, 'Stats', player_2]]
 
-        st.dataframe(display_df.assign(hack='').set_index('hack'))
+        st.dataframe(display_df)
 
     #Sidebar
-
+    st.sidebar.write(' ')
+    st.sidebar.write(' ')
     st.sidebar.markdown("### Need Help Selecting a Player?")
     country_club = st.sidebar.selectbox('What Country is Their Club In?', list(df['Club Country'].unique()))
     league = st.sidebar.selectbox('What League is Their Club in?', list(df['Club League'][df['Club Country'] == country_club].unique()))
