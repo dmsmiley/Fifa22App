@@ -30,12 +30,14 @@ def app():
     newer_df = df[df.isin([league]).any(axis=1)]
 
     fig = px.box(newer_df,
-               y=stat,
-               x = 'Club')
+               y = stat,
+               x = 'Club',
+                 width = 750)
+
 
     st.plotly_chart(fig)
 
-    expander = st.expander(label= f'{stat} Stats for {league}')
+    expander = st.expander(label= f'Player {stat} by Club in {league}')
 
     with expander:
         clubs = st.selectbox("Club:", options=list(set([x for x in newer_df['Club'] if pd.isnull(x) == False])))
