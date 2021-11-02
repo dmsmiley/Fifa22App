@@ -32,7 +32,7 @@ def app():
     fig = px.box(newer_df,
                y = stat,
                x = 'Club',
-                 width = 750)
+                 width = 800)
 
 
     st.plotly_chart(fig)
