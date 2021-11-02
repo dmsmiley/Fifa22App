@@ -44,7 +44,6 @@ def app():
 
         col1_e, col2_e = st.columns((2,1))
 
-        st.write('')
         expander_df = df[df.isin([clubs]).any(axis=1)].sort_values(by=[stat], ascending=False)[stat]
         logo_df = df[df.isin([clubs]).any(axis=1)]['Club Logo'][0]
 
