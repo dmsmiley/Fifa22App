@@ -105,14 +105,21 @@ def app():
     #Row 1 Stats______________________________________________
 
 
-    expander = st.expander(label='Click for Additional Stats')
+    expander = st.expander(label='Click to Compare All Stats')
 
-    add_stats = ['Crossing', 'Finishing', 'HeadingAccuracy',
-           'ShortPassing', 'Volleys', 'Dribbling', 'Curve', 'FKAccuracy',
-           'LongPassing', 'BallControl', 'Acceleration', 'SprintSpeed', 'Agility',
-           'Reactions', 'Balance', 'ShotPower', 'Jumping', 'Stamina', 'Strength',
-           'LongShots', 'Aggression', 'Interceptions', 'Positioning', 'Vision',
-           'Penalties', 'Composure', 'Marking', 'StandingTackle', 'SlidingTackle']
+    add_stats = ['Height', 'Weight', 'Overall', 'Potential', 'Growth', 'TotalStats',
+                 'BaseStats', 'ValueEUR', 'WageEUR', 'ReleaseClause', 'IntReputation','WeakFoot', 'SkillMoves',
+                 'PaceTotal', 'ShootingTotal', 'PassingTotal', 'DribblingTotal',
+                 'DefendingTotal', 'PhysicalityTotal', 'Crossing', 'Finishing', 'HeadingAccuracy',
+                 'ShortPassing', 'Volleys', 'Dribbling', 'Curve', 'FKAccuracy',
+                 'LongPassing', 'BallControl', 'Acceleration', 'SprintSpeed', 'Agility',
+                 'Reactions', 'Balance', 'ShotPower', 'Jumping', 'Stamina', 'Strength',
+                 'LongShots', 'Aggression', 'Interceptions', 'Positioning', 'Vision',
+                 'Penalties', 'Composure', 'Marking', 'StandingTackle', 'SlidingTackle',
+                 'GKDiving', 'GKHandling', 'GKKicking', 'GKPositioning', 'GKReflexes',
+                 'STRating', 'LWRating', 'LFRating', 'CFRating', 'RFRating', 'RWRating',
+                 'CAMRating', 'LMRating', 'CMRating', 'RMRating', 'LWBRating',
+                 'CDMRating', 'RWBRating', 'LBRating', 'CBRating', 'RBRating','GKRating']
 
     with expander:
 
