@@ -35,7 +35,7 @@ def app():
 
     st.plotly_chart(fig)
 
-    expander = st.expander(label='Player Stats')
+    expander = st.expander(label= [stat] ' Stats for ' [league])
 
     with expander:
         clubs = st.selectbox("Club:", options=list(set([x for x in newer_df['Club'] if pd.isnull(x) == False])))
