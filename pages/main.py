@@ -19,4 +19,5 @@ def app():
     with col2:
         st.title("Analytics with FIFA 22")
         st.markdown('###### Streamlit App by [David Smiley](https://www.linkedin.com/in/david-m-smiley/)')
-        st.markdown('#### \n\n Use the App Navigation menu on the left to compare players and clubs in FIFA 22')
+        st.markdown('\n \n')
+        st.subheader('Use the App Navigation menu on the left')
