@@ -10,7 +10,7 @@ st.set_page_config(layout="wide")
 app = MultiPage()
 
 # Add all your application here
-app.add_page("Main Page ", main.app)
+app.add_page("Main Page", main.app)
 app.add_page("Player Comparison", player_comparison.app)
 app.add_page("League Distribution", team_distribution.app)
 

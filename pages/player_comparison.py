@@ -9,7 +9,7 @@ def app():
 
     #User Selection _____________________________
 
-    player_1 = st.selectbox('Type in First Player: ', options=list(df.index.values))
+    player_1 = st.selectbox('Type in First Player:', options=list(df.index.values))
     player_2 = st.selectbox('Type in Second Player: ', options=list(df.index.values),
                             index=1)
 
