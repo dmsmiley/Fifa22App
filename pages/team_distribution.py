@@ -28,7 +28,7 @@ def app():
     fig = px.box(newer_df,
                  y = stat,
                  x = 'Club',
-                 width = 1300)
+                 width = 1000)
 
 
     st.plotly_chart(fig)
@@ -62,6 +62,6 @@ def app():
         fig = px.box(ex_club_df,
                      y = ex_stat,
                      x ='Club',
-                     width = 1100)
+                     width = 1000)
 
         st.plotly_chart(fig)
