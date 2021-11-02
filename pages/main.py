@@ -21,3 +21,6 @@ def app():
         st.markdown('###### Streamlit App by [David Smiley](https://www.linkedin.com/in/david-m-smiley/)')
         st.markdown('\n \n \n')
         st.subheader('Use the App Navigation menu on the left')
+
+    st.markdown("Partial data provided by ['FIFA 22 Complete Player Dataset'](https://www.kaggle.com/cashncarry/fifa-22-complete-player-dataset)")
+    st.markdown("All other data was collected from [sofifa.com](https://sofifa.com/)")

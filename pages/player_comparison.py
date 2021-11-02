@@ -8,32 +8,42 @@ def app():
     df = pd.read_csv(data_file, index_col='FullName')
 
     #User Selection _____________________________
+    sel_col1, sel_col2, sel_col3 = st.columns((1, 2, 1))
 
-    player_1 = st.selectbox('Type in First Player:', options=list(df.index.values))
-    player_2 = st.selectbox('Type in Second Player: ', options=list(df.index.values),
-                            index=1)
+    with sel_col1:
+        st.empty()
+
+    with sel_col2:
+        player_1 = st.selectbox('Type First Player:', options=list(df.index.values))
+        player_2 = st.selectbox('Type Second Player: ', options=list(df.index.values),
+                                index=1)
+    with sel_col3:
+        st.empty()
 
     #Player Display_________________________________________
 
     photo_1 = df.loc[player_1]['PhotoUrl']
 
-
     photo_2 = df.loc[player_2]['PhotoUrl']
 
 
-    col1_1, col2_1 = st.columns(2)
+    col1_a, col1_1, col2_1, col1_b = st.columns(4)
+
+    with col1_a:
+        st.empty()
 
     with col1_1:
         st.header(player_1)
         st.markdown('### Age: {}'.format(df.loc[player_1]['Age']))
         st.image(photo_1, use_column_width=True)
 
-
     with col2_1:
         st.header(player_2)
         st.markdown('### Age: {}'.format(df.loc[player_2]['Age']))
         st.image(photo_2, use_column_width=True)
 
+    with col1_b:
+        st.empty()
 
     #Player Information_____________________________________
 
@@ -44,7 +54,13 @@ def app():
     flag_2 = df.loc[player_2]['Flag']
 
 
-    col1_2, col2_2, col3_2, col4_2 = st.columns(4)
+    col_2a, col1_2a, col1_2, col2_2, col3_2, col4_2, col1_2b, col_2b = st.columns(8)
+
+    with col_2a:
+        st.empty()
+
+    with col1_2a:
+        st.empty()
 
     with col1_2:
         st.subheader("Club:")
@@ -66,47 +82,68 @@ def app():
         st.markdown("##### {}".format(df.loc[player_2]['Nationality']))
         st.image(flag_2, use_column_width=True)
 
+    with col1_2b:
+        st.empty()
+
+    with col_2b:
+        st.empty()
+
     #Main Stats_____________________________________________
 
-    new_df = df.loc[[player_1,player_2]][['PaceTotal','ShootingTotal', 'PassingTotal', 'DribblingTotal', 'DefendingTotal','PhysicalityTotal']]
+    new_df = df.loc[[player_1,player_2]][['PaceTotal','ShootingTotal', 'PassingTotal',
+                                          'DribblingTotal', 'DefendingTotal','PhysicalityTotal']]
 
-    categories = list(new_df.columns)
+    spider_col1, spider_col2, spider_col3 = st.columns((1, 2, 1))
 
-    fig = go.Figure()
+    with spider_col1:
+        st.empty()
 
-    fig.add_trace(go.Scatterpolar(
-          r=new_df.iloc[0],
-          theta=categories,
-          fill='toself',
-          name=new_df.index[0]
-    ))
+    with spider_col2:
+        categories = list(new_df.columns)
 
-    fig.add_trace(go.Scatterpolar(
+        fig = go.Figure()
+
+        fig.add_trace(go.Scatterpolar(
+            r=new_df.iloc[0],
+            theta=categories,
+            fill='toself',
+            name=new_df.index[0]
+        ))
+
+        fig.add_trace(go.Scatterpolar(
             r=new_df.iloc[1],
             theta=categories,
             fill='toself',
             name=new_df.index[1]
-      ))
+        ))
 
-    fig.update_layout(
-          title= f"{new_df.index[0]} vs {new_df.index[1]}",
-          polar=dict(
-          radialaxis=dict(
-            visible=True,
-            range=[0, 100]
-          )),
-        showlegend=True
-      )
+        fig.update_layout(
+            title=f"{new_df.index[0]} vs {new_df.index[1]}",
+            polar=dict(
+                radialaxis=dict(
+                    visible=True,
+                    range=[0, 100]
+                )),
+            showlegend=True
+        )
 
-    st.plotly_chart(fig)
+        st.plotly_chart(fig)
+
+    with spider_col3:
+        st.empty()
 
 
     #Row 1 Stats______________________________________________
+    exp_col1, exp_col2, exp_col3 = st.columns((1, 2, 1))
 
+    with exp_col1:
+        st.empty()
 
-    expander = st.expander(label='Click to Compare All Stats')
+    with exp_col2:
 
-    add_stats = ['Height', 'Weight', 'Overall', 'Potential', 'Growth', 'TotalStats',
+        expander = st.expander(label='Click to Compare All Stats')
+
+        add_stats = ['Height', 'Weight', 'Overall', 'Potential', 'Growth', 'TotalStats',
                  'BaseStats', 'ValueEUR', 'WageEUR', 'ReleaseClause', 'IntReputation','WeakFoot', 'SkillMoves',
                  'PaceTotal', 'ShootingTotal', 'PassingTotal', 'DribblingTotal',
                  'DefendingTotal', 'PhysicalityTotal', 'Crossing', 'Finishing', 'HeadingAccuracy',
@@ -120,17 +157,19 @@ def app():
                  'CAMRating', 'LMRating', 'CMRating', 'RMRating', 'LWBRating',
                  'CDMRating', 'RWBRating', 'LBRating', 'CBRating', 'RBRating','GKRating']
 
-    with expander:
+        with expander:
+            stats_df = df.loc[[player_1,player_2]][add_stats]
 
-        stats_df = df.loc[[player_1,player_2]][add_stats]
+            player_1_stat_list = list(stats_df.iloc[0][1:])
+            player_2_stat_list = list(stats_df.iloc[1][1:])
+            stats = list(stats_df.columns[1:])
 
-        player_1_stat_list = list(stats_df.iloc[0][1:])
-        player_2_stat_list = list(stats_df.iloc[1][1:])
-        stats = list(stats_df.columns[1:])
+            display_df = pd.DataFrame(list(zip(player_1_stat_list,player_2_stat_list,stats)), columns = [player_1,player_2,"Stats"]).set_index("Stats").style.highlight_max(color='#FFF8DC', axis=1)
 
-        display_df = pd.DataFrame(list(zip(player_1_stat_list,player_2_stat_list,stats)), columns = [player_1,player_2,"Stats"]).set_index("Stats").style.highlight_max(color='#FFF8DC', axis=1)
+            st.dataframe(display_df)
 
-        st.dataframe(display_df)
+    with exp_col3:
+        st.empty()
 
     #Sidebar
     st.sidebar.write(' ')

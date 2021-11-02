@@ -20,48 +20,68 @@ def app():
                        'CAMRating', 'LMRating', 'CMRating', 'RMRating', 'LWBRating',
                        'CDMRating', 'RWBRating', 'LBRating', 'CBRating', 'RBRating','GKRating']
 
-    league = st.selectbox('Type League: ', options=list(set([x for x in df['Club League'] if pd.isnull(x) == False])), index = 3)
-    stat = st.selectbox('Stat:', options=potential_stats)
+    col1_1, col1_2, col1_3 = st.columns((1,2,1))
 
-    newer_df = df[df.isin([league]).any(axis=1)]
+    with col1_1:
+        st.empty()
+
+    with col1_2:
+        league = st.selectbox('Type League: ', options=list(set([x for x in df['Club League'] if pd.isnull(x) == False])), index = 3)
+        stat = st.selectbox('Stat:', options=potential_stats)
+
+        newer_df = df[df.isin([league]).any(axis=1)]
+
+    with col1_3:
+        st.empty()
 
     fig = px.box(newer_df,
-                 y = stat,
-                 x = 'Club',
-                 width = 1000)
-
+                 y=stat,
+                 x='Club',
+                 width=1600)
 
     st.plotly_chart(fig)
 
-    expander1 = st.expander(label= f'Player {stat} by Club in {league}')
+    col2_1, col2_2, col2_3 = st.columns(3)
 
-    with expander1:
-        clubs = st.selectbox("Club:", options=list(set([x for x in newer_df['Club'] if pd.isnull(x) == False])))
+    with col2_1:
+        st.empty()
 
-        col1_e, col2_e = st.columns((2,1))
+    with col2_2:
+        expander1 = st.expander(label= f'Player {stat} by Club in {league}')
 
-        expander1_df = df[df.isin([clubs]).any(axis=1)].sort_values(by=[stat], ascending=False)[stat]
-        logo_df = df[df.isin([clubs]).any(axis=1)]['Club Logo'][0]
+        with expander1:
+            clubs = st.selectbox("Club:", options=list(set([x for x in newer_df['Club'] if pd.isnull(x) == False])))
 
-        with col1_e:
+            expander1_df = df[df.isin([clubs]).any(axis=1)].sort_values(by=[stat], ascending=False)[stat]
+            logo_df = df[df.isin([clubs]).any(axis=1)]['Club Logo'][0]
+
+            st.image(logo_df)
             st.dataframe(expander1_df)
 
-        with col2_e:
-            st.image(logo_df)
+    with col2_3:
+        st.empty()
 
 
+    col3_1, col3_2, col3_3 = st.columns((1,2,1))
 
-    expander2 = st.expander(label='Compare Clubs in Different Leagues')
+    with col3_1:
+        st.empty()
 
-    with expander2:
-        clubs = st.multiselect("Club:", options=list(set([x for x in df['Club'] if pd.isnull(x) == False])))
-        ex_stat = st.selectbox('Stat:  ', options=potential_stats)
+    with col3_2:
+        expander2 = st.expander(label='Compare Clubs in Different Leagues')
 
-        ex_club_df = df[df['Club'].isin(clubs)]
+        with expander2:
+            clubs = st.multiselect("Club:", options=list(set([x for x in df['Club'] if pd.isnull(x) == False])))
+            ex_stat = st.selectbox('Stat:  ', options=potential_stats)
 
-        fig = px.box(ex_club_df,
-                     y = ex_stat,
-                     x ='Club',
-                     width = 1000)
+            ex_club_df = df[df['Club'].isin(clubs)]
 
-        st.plotly_chart(fig)
+            fig = px.box(ex_club_df,
+                         y = ex_stat,
+                         x ='Club',
+                         width = 750)
+
+            st.plotly_chart(fig)
+
+    with col3_3:
+        st.empty()
