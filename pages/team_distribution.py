@@ -42,6 +42,6 @@ def app():
     with expander:
         clubs = st.selectbox("Club:", options=list(set([x for x in newer_df['Club'] if pd.isnull(x) == False])))
 
-        expander_df = df[df.isin([clubs]).any(axis=1)].sort_values(by=[stat])[stat]
+        expander_df = df[df.isin([clubs]).any(axis=1)].sort_values(by=[stat], ascending=False)[stat]
 
         st.dataframe(expander_df)
