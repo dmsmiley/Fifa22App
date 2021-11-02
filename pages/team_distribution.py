@@ -42,6 +42,14 @@ def app():
     with expander:
         clubs = st.selectbox("Club:", options=list(set([x for x in newer_df['Club'] if pd.isnull(x) == False])))
 
-        expander_df = df[df.isin([clubs]).any(axis=1)].sort_values(by=[stat], ascending=False)[stat]
+        col1_e, col2_e = st.columns((2,1))
 
-        st.dataframe(expander_df)
+        st.write('')
+        expander_df = df[df.isin([clubs]).any(axis=1)].sort_values(by=[stat], ascending=False)[stat]
+        logo_df = df[df.isin([clubs]).any(axis=1)]['Club Logo'][0]
+
+        with col1_e:
+            st.dataframe(expander_df)
+
+        with col2_e:
+            st.image(logo_df)
