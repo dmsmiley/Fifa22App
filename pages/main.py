@@ -14,7 +14,7 @@ def app():
 
     with col1:
         st.image(display)
-        st.write('Photo by [Md Mahdi](https://unsplash.com/@mahdi17?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/soccer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)')
+        st.write(' Photo by [Md Mahdi](https://unsplash.com/@mahdi17?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/soccer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)')
 
     with col2:
         st.title("Analytics with FIFA 22")
