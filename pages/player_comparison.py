@@ -42,23 +42,23 @@ def app():
 
 
     with col2_1:
-        st.subheader("Club:")
-        st.markdown("##### {}".format(df.loc[player_1]['Club']))
+        st.markdown("##### Club:")
+        st.markdown("###### {}".format(df.loc[player_1]['Club']))
         st.image(club_logo_1, use_column_width=True)
 
     with col2_2:
-        st.subheader("Nationality:")
-        st.markdown("##### {}".format(df.loc[player_1]['Nationality']))
+        st.markdown("##### Nationality:")
+        st.markdown("###### {}".format(df.loc[player_1]['Nationality']))
         st.image(flag_1, use_column_width=True)
 
     with col2_3:
-        st.subheader("Club:")
-        st.markdown("##### {}".format(df.loc[player_2]['Club']))
+        st.markdown("##### Club:")
+        st.markdown("###### {}".format(df.loc[player_2]['Club']))
         st.image(club_logo_2, use_column_width=True)
 
     with col2_4:
-        st.subheader("Nationality:")
-        st.markdown("##### {}".format(df.loc[player_2]['Nationality']))
+        st.markdown("##### Nationality:")
+        st.markdown("###### {}".format(df.loc[player_2]['Nationality']))
         st.image(flag_2, use_column_width=True)
 
 
