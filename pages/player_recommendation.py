@@ -11,27 +11,42 @@ Using KNN to determine how alike players are
 def app():
     data_file = 'fifa22data.csv'
     df = pd.read_csv(data_file, index_col='FullName')
-    kmeans_df = df[:1500][['PaceTotal','ShootingTotal', 'PassingTotal', 'DribblingTotal', 'DefendingTotal','PhysicalityTotal']]
+
+    df_columns = ['Age', 'Height', 'Weight', 'Overall', 'Potential', 'Growth', 'TotalStats',
+                  'BaseStats', 'ValueEUR', 'WageEUR', 'ReleaseClause', 'IntReputation',
+                  'WeakFoot', 'SkillMoves', 'PaceTotal', 'ShootingTotal', 'PassingTotal', 'DribblingTotal',
+                  'DefendingTotal', 'PhysicalityTotal', 'Crossing', 'Finishing', 'HeadingAccuracy',
+                  'ShortPassing', 'Volleys', 'Dribbling', 'Curve', 'FKAccuracy',
+                  'LongPassing', 'BallControl', 'Acceleration', 'SprintSpeed', 'Agility',
+                  'Reactions', 'Balance', 'ShotPower', 'Jumping', 'Stamina', 'Strength',
+                  'LongShots', 'Aggression', 'Interceptions', 'Positioning', 'Vision',
+                  'Penalties', 'Composure', 'Marking', 'StandingTackle', 'SlidingTackle',
+                  'GKDiving', 'GKHandling', 'GKKicking', 'GKPositioning', 'GKReflexes',
+                  'STRating', 'LWRating', 'LFRating', 'CFRating', 'RFRating', 'RWRating',
+                  'CAMRating', 'LMRating', 'CMRating', 'RMRating', 'LWBRating',
+                  'CDMRating', 'RWBRating', 'LBRating', 'CBRating', 'RBRating', 'GKRating']
+
+    knn_df = df[:1500][df_columns]
 
     # KNN
-    kmeans_scaled = StandardScaler().fit_transform(kmeans_df)
-    kmeans_final = pd.DataFrame(index=kmeans_df.index, columns=kmeans_df.columns, data=kmeans_scaled)
+    knn_scaled = StandardScaler().fit_transform(knn_df)
+    knn_final = pd.DataFrame(index=knn_df.index, columns=knn_df.columns, data=knn_scaled)
 
-    feature_matrix = csr_matrix(kmeans_final.values)
+    feature_matrix = csr_matrix(knn_final.values)
     knn = NearestNeighbors(metric='cosine', algorithm='brute')
     knn.fit(feature_matrix)
 
     player_list = []
     rec_list = []
 
-    for player in kmeans_final.index:
-        distances, indices = knn.kneighbors(kmeans_final.loc[player, :].values.reshape(1, -1), n_neighbors=7)
+    for player in knn_final.index:
+        distances, indices = knn.kneighbors(knn_final.loc[player, :].values.reshape(1, -1), n_neighbors=7)
 
         for elem in range(0, len(distances.flatten())):
             if elem == 0:
                 player_list.append([player])
             else:
-                rec_list.append([player, elem, kmeans_final.index[indices.flatten()[elem]], distances.flatten()[elem]])
+                rec_list.append([player, elem, knn_final.index[indices.flatten()[elem]], distances.flatten()[elem]])
 
     rec_df = pd.DataFrame(rec_list, columns=['search_player', 'rec_number', 'rec_player', 'distance_score'])
 
