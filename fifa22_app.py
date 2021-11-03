@@ -2,9 +2,6 @@
 # Custom imports
 from multipage import MultiPage
 from pages import player_comparison, main, team_distribution # import your pages here
-import streamlit as st
-
-st.set_page_config(layout="wide")
 
 # Create an instance of the app
 app = MultiPage()
