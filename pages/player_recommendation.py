@@ -51,7 +51,7 @@ def app():
     rec_df = pd.DataFrame(rec_list, columns=['search_player', 'rec_number', 'rec_player', 'distance_score'])
 
     # PLayer Selection
-    player = st.selectbox('Type First Player:', options=list(df.index.values))
+    player = st.selectbox('Type First Player: ', options=list(df.index.values))
 
     top_recs = list(rec_df[rec_df['search_player'] == player]['rec_player'])
 
