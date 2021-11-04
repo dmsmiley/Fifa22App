@@ -26,4 +26,38 @@ def app():
                   'CAMRating', 'LMRating', 'CMRating', 'RMRating', 'LWBRating',
                   'CDMRating', 'RWBRating', 'LBRating', 'CBRating', 'RBRating','GKRating']
 
-    kmeans_df = df[:1500][columns]
+    knn_df = df[:1500][df_columns]
+
+    # KNN
+    knn_scaled = StandardScaler().fit_transform(knn_df)
+    knn_final = pd.DataFrame(index=knn_df.index, columns=knn_df.columns, data=knn_scaled)
+
+    feature_matrix = csr_matrix(knn_final.values)
+    knn = NearestNeighbors(metric='cosine', algorithm='brute')
+    knn.fit(feature_matrix)
+
+    player_list = []
+    rec_list = []
+
+    for player in knn_final.index:
+        distances, indices = knn.kneighbors(knn_final.loc[player, :].values.reshape(1, -1), n_neighbors=6)
+
+        for elem in range(0, len(distances.flatten())):
+            if elem == 0:
+                player_list.append([player])
+            else:
+                rec_list.append([player, elem, knn_final.index[indices.flatten()[elem]], distances.flatten()[elem]])
+
+    rec_df = pd.DataFrame(rec_list, columns=['search_player', 'rec_number', 'rec_player', 'distance_score'])
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        i=0
+        for x in df_columns:
+            st.slider(x)
+            i+=1
+
+    #player =
+
+    #top_recs = list(rec_df[rec_df['search_player'] == {}]['rec_player'])
