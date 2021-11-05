@@ -68,6 +68,8 @@ def app():
         st.markdown(f"##### Defending: {df.loc[player]['DefendingTotal']}")
         st.markdown(f"##### Physicality: {df.loc[player]['PhysicalityTotal']}")
 
+    st.markdown('***')
+
     st.subheader(f'10 Players Most Like {player}:')
 
     '''
