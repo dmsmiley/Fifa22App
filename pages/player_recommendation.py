@@ -56,11 +56,15 @@ def app():
     top_recs = list(rec_df[rec_df['search_player'] == player]['rec_player'])
 
     colm_1, colm_2 = st.columns(2)
+
     with colm_1:
         st.image(df.loc[player]['PhotoUrl'])
+        st.write('')
+        st.write('')
 
     with colm_2:
         st.markdown(f"#### {player}")
+        st.markdown(f"##### Club: {df.loc[player]['Club']}")
         st.markdown(f"##### Pace: {df.loc[player]['PaceTotal']}")
         st.markdown(f"##### Shooting: {df.loc[player]['ShootingTotal']}")
         st.markdown(f"##### Passing: {df.loc[player]['PassingTotal']}")
