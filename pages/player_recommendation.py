@@ -300,7 +300,6 @@ def app():
         st.image(df.loc[top_recs[x]]['PhotoUrl'])
         st.write('')
         st.write('')
-        st.markdown('***')
 
     with col10_2:
         st.markdown(f"#### {i}. {top_recs[x]}")
