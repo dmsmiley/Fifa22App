@@ -93,8 +93,8 @@ def app():
             st.markdown(f"##### Dribbling: {df.loc[top_recs[x]]['DribblingTotal']}")
             st.markdown(f"##### Defending: {df.loc[top_recs[x]]['DefendingTotal']}")
             st.markdown(f"##### Physicality: {df.loc[top_recs[x]]['PhysicalityTotal']}")
-            for _ in range(j):
-                st.write('')
+            [st.write('') for _ in range(j)]
+            
             i += 1
             j += 1'''
 
@@ -105,10 +105,13 @@ def app():
 
     with col1_1:
         st.image(df.loc[top_recs[x]]['PhotoUrl'])
+        st.write('')
+        st.write('')
         st.markdown('***')
 
     with col1_2:
         st.markdown(f"#### {i}. {top_recs[x]}")
+        st.markdown(f"##### Club: {df.loc[top_recs[x]]['Club']}")
         st.markdown(f"##### Pace: {df.loc[top_recs[x]]['PaceTotal']}")
         st.markdown(f"##### Shooting: {df.loc[top_recs[x]]['ShootingTotal']}")
         st.markdown(f"##### Passing: {df.loc[top_recs[x]]['PassingTotal']}")
@@ -123,10 +126,13 @@ def app():
 
     with col2_1:
         st.image(df.loc[top_recs[x]]['PhotoUrl'])
+        st.write('')
+        st.write('')
         st.markdown('***')
 
     with col2_2:
         st.markdown(f"#### {i}. {top_recs[x]}")
+        st.markdown(f"##### Club: {df.loc[top_recs[x]]['Club']}")
         st.markdown(f"##### Pace: {df.loc[top_recs[x]]['PaceTotal']}")
         st.markdown(f"##### Shooting: {df.loc[top_recs[x]]['ShootingTotal']}")
         st.markdown(f"##### Passing: {df.loc[top_recs[x]]['PassingTotal']}")
@@ -141,10 +147,13 @@ def app():
 
     with col3_1:
         st.image(df.loc[top_recs[x]]['PhotoUrl'])
+        st.write('')
+        st.write('')
         st.markdown('***')
 
     with col3_2:
         st.markdown(f"#### {i}. {top_recs[x]}")
+        st.markdown(f"##### Club: {df.loc[top_recs[x]]['Club']}")
         st.markdown(f"##### Pace: {df.loc[top_recs[x]]['PaceTotal']}")
         st.markdown(f"##### Shooting: {df.loc[top_recs[x]]['ShootingTotal']}")
         st.markdown(f"##### Passing: {df.loc[top_recs[x]]['PassingTotal']}")
@@ -159,10 +168,13 @@ def app():
 
     with col4_1:
         st.image(df.loc[top_recs[x]]['PhotoUrl'])
+        st.write('')
+        st.write('')
         st.markdown('***')
 
     with col4_2:
         st.markdown(f"#### {i}. {top_recs[x]}")
+        st.markdown(f"##### Club: {df.loc[top_recs[x]]['Club']}")
         st.markdown(f"##### Pace: {df.loc[top_recs[x]]['PaceTotal']}")
         st.markdown(f"##### Shooting: {df.loc[top_recs[x]]['ShootingTotal']}")
         st.markdown(f"##### Passing: {df.loc[top_recs[x]]['PassingTotal']}")
@@ -177,10 +189,13 @@ def app():
 
     with col5_1:
         st.image(df.loc[top_recs[x]]['PhotoUrl'])
+        st.write('')
+        st.write('')
         st.markdown('***')
 
     with col5_2:
         st.markdown(f"#### {i}. {top_recs[x]}")
+        st.markdown(f"##### Club: {df.loc[top_recs[x]]['Club']}")
         st.markdown(f"##### Pace: {df.loc[top_recs[x]]['PaceTotal']}")
         st.markdown(f"##### Shooting: {df.loc[top_recs[x]]['ShootingTotal']}")
         st.markdown(f"##### Passing: {df.loc[top_recs[x]]['PassingTotal']}")
@@ -195,10 +210,13 @@ def app():
 
     with col6_1:
         st.image(df.loc[top_recs[x]]['PhotoUrl'])
+        st.write('')
+        st.write('')
         st.markdown('***')
 
     with col6_2:
         st.markdown(f"#### {i}. {top_recs[x]}")
+        st.markdown(f"##### Club: {df.loc[top_recs[x]]['Club']}")
         st.markdown(f"##### Pace: {df.loc[top_recs[x]]['PaceTotal']}")
         st.markdown(f"##### Shooting: {df.loc[top_recs[x]]['ShootingTotal']}")
         st.markdown(f"##### Passing: {df.loc[top_recs[x]]['PassingTotal']}")
@@ -213,10 +231,13 @@ def app():
 
     with col7_1:
         st.image(df.loc[top_recs[x]]['PhotoUrl'])
+        st.write('')
+        st.write('')
         st.markdown('***')
 
     with col7_2:
         st.markdown(f"#### {i}. {top_recs[x]}")
+        st.markdown(f"##### Club: {df.loc[top_recs[x]]['Club']}")
         st.markdown(f"##### Pace: {df.loc[top_recs[x]]['PaceTotal']}")
         st.markdown(f"##### Shooting: {df.loc[top_recs[x]]['ShootingTotal']}")
         st.markdown(f"##### Passing: {df.loc[top_recs[x]]['PassingTotal']}")
@@ -231,10 +252,13 @@ def app():
 
     with col8_1:
         st.image(df.loc[top_recs[x]]['PhotoUrl'])
+        st.write('')
+        st.write('')
         st.markdown('***')
 
     with col8_2:
         st.markdown(f"#### {i}. {top_recs[x]}")
+        st.markdown(f"##### Club: {df.loc[top_recs[x]]['Club']}")
         st.markdown(f"##### Pace: {df.loc[top_recs[x]]['PaceTotal']}")
         st.markdown(f"##### Shooting: {df.loc[top_recs[x]]['ShootingTotal']}")
         st.markdown(f"##### Passing: {df.loc[top_recs[x]]['PassingTotal']}")
@@ -249,10 +273,13 @@ def app():
 
     with col9_1:
         st.image(df.loc[top_recs[x]]['PhotoUrl'])
+        st.write('')
+        st.write('')
         st.markdown('***')
 
     with col9_2:
         st.markdown(f"#### {i}. {top_recs[x]}")
+        st.markdown(f"##### Club: {df.loc[top_recs[x]]['Club']}")
         st.markdown(f"##### Pace: {df.loc[top_recs[x]]['PaceTotal']}")
         st.markdown(f"##### Shooting: {df.loc[top_recs[x]]['ShootingTotal']}")
         st.markdown(f"##### Passing: {df.loc[top_recs[x]]['PassingTotal']}")
@@ -267,10 +294,13 @@ def app():
 
     with col10_1:
         st.image(df.loc[top_recs[x]]['PhotoUrl'])
+        st.write('')
+        st.write('')
         st.markdown('***')
 
     with col10_2:
         st.markdown(f"#### {i}. {top_recs[x]}")
+        st.markdown(f"##### Club: {df.loc[top_recs[x]]['Club']}")
         st.markdown(f"##### Pace: {df.loc[top_recs[x]]['PaceTotal']}")
         st.markdown(f"##### Shooting: {df.loc[top_recs[x]]['ShootingTotal']}")
         st.markdown(f"##### Passing: {df.loc[top_recs[x]]['PassingTotal']}")
