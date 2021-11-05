@@ -310,6 +310,3 @@ def app():
         st.markdown(f"##### Dribbling: {df.loc[top_recs[x]]['DribblingTotal']}")
         st.markdown(f"##### Defending: {df.loc[top_recs[x]]['DefendingTotal']}")
         st.markdown(f"##### Physicality: {df.loc[top_recs[x]]['PhysicalityTotal']}")
-
-    x += 1
-    i += 1
