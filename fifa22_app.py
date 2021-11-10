@@ -11,7 +11,7 @@ app.add_page("Main Page", main.app)
 app.add_page("Player Recommendation", player_recommendation.app)
 app.add_page("Player Comparison", player_comparison.app)
 app.add_page("League Distribution", team_distribution.app)
-#app.add_page("Custom Recommender", custom_recommender.app)
+app.add_page("Custom Recommender", custom_recommender.app)
 
 # The main app
 app.run()
