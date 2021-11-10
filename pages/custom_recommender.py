@@ -34,7 +34,7 @@ def app():
         i=0
         st.markdown('##### Overall:')
         for x in df_1:
-            z = st.number_input(x, min_value=knn_df[x].min(), max_value=knn_df[x].max(),
+            z = st.number_input(f'{x} ({knn_df[x].min()} to {knn_df[x].max()})', min_value=knn_df[x].min(), max_value=knn_df[x].max(),
                                 value=int(knn_df[x].mean()))
             player_stats.append(z)
             if x == 'SkillMoves':
@@ -45,7 +45,7 @@ def app():
         i = 0
         st.markdown('##### Defending:')
         for x in df_2:
-            z = st.number_input(x, min_value=knn_df[x].min(), max_value=knn_df[x].max(),
+            z = st.number_input(f'{x} ({knn_df[x].min()} to {knn_df[x].max()})', min_value=knn_df[x].min(), max_value=knn_df[x].max(),
                                 value=int(knn_df[x].mean()))
             if x == 'StandingTackle':
                 st.markdown('##### Physical:')
@@ -57,7 +57,7 @@ def app():
         i = 0
         st.markdown('##### Shooting:')
         for x in df_3:
-            z = st.number_input(x, min_value=knn_df[x].min(), max_value=knn_df[x].max(),
+            z = st.number_input(f'{x} ({knn_df[x].min()} to {knn_df[x].max()})', min_value=knn_df[x].min(), max_value=knn_df[x].max(),
                                 value=int(knn_df[x].mean()))
             if x == 'Volleys':
                 st.markdown('##### Passing:')
@@ -68,7 +68,7 @@ def app():
         i = 0
         st.markdown('##### Passing (cont.):')
         for x in df_4:
-            z = st.number_input(x, min_value=knn_df[x].min(), max_value=knn_df[x].max(),
+            z = st.number_input(f'{x} ({knn_df[x].min()} to {knn_df[x].max()})', min_value=knn_df[x].min(), max_value=knn_df[x].max(),
                                 value=int(knn_df[x].mean()))
             if x == 'Vision':
                 st.markdown('##### Dribbling:')
@@ -124,11 +124,13 @@ def app():
         st.image(df.loc[top_recs[x]]['PhotoUrl'])
         st.write('')
         st.write('')
+        st.write('')
         st.markdown('***')
 
     with col1_2:
         st.markdown(f"#### {i}. {top_recs[x]}")
         st.markdown(f"##### Club: {df.loc[top_recs[x]]['Club']}")
+        st.markdown(f"##### Overall: {df.loc[top_recs[x]]['Overall']}")
         st.markdown(f"##### Pace: {df.loc[top_recs[x]]['PaceTotal']}")
         st.markdown(f"##### Shooting: {df.loc[top_recs[x]]['ShootingTotal']}")
         st.markdown(f"##### Passing: {df.loc[top_recs[x]]['PassingTotal']}")
@@ -145,11 +147,13 @@ def app():
         st.image(df.loc[top_recs[x]]['PhotoUrl'])
         st.write('')
         st.write('')
+        st.write('')
         st.markdown('***')
 
     with col2_2:
         st.markdown(f"#### {i}. {top_recs[x]}")
         st.markdown(f"##### Club: {df.loc[top_recs[x]]['Club']}")
+        st.markdown(f"##### Overall: {df.loc[top_recs[x]]['Overall']}")
         st.markdown(f"##### Pace: {df.loc[top_recs[x]]['PaceTotal']}")
         st.markdown(f"##### Shooting: {df.loc[top_recs[x]]['ShootingTotal']}")
         st.markdown(f"##### Passing: {df.loc[top_recs[x]]['PassingTotal']}")
@@ -166,11 +170,13 @@ def app():
         st.image(df.loc[top_recs[x]]['PhotoUrl'])
         st.write('')
         st.write('')
+        st.write('')
         st.markdown('***')
 
     with col3_2:
         st.markdown(f"#### {i}. {top_recs[x]}")
         st.markdown(f"##### Club: {df.loc[top_recs[x]]['Club']}")
+        st.markdown(f"##### Overall: {df.loc[top_recs[x]]['Overall']}")
         st.markdown(f"##### Pace: {df.loc[top_recs[x]]['PaceTotal']}")
         st.markdown(f"##### Shooting: {df.loc[top_recs[x]]['ShootingTotal']}")
         st.markdown(f"##### Passing: {df.loc[top_recs[x]]['PassingTotal']}")
