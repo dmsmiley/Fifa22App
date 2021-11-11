@@ -50,6 +50,8 @@ def app():
 
     rec_df = pd.DataFrame(rec_list, columns=['search_player', 'rec_number', 'rec_player', 'distance_score'])
 
+    st.markdown("### Player Recommendation")
+
     # PLayer Selection
     player = st.selectbox('Type First Player: ', options=list(df.index.values))
 

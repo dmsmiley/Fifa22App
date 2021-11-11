@@ -26,6 +26,8 @@ def app():
     #Set Attributes
     df_1, df_2, df_3, df_4 = np.array_split(df_columns, 4)
 
+    st.header('All Stats:')
+
     col1, col2, col3, col4 = st.columns(4)
 
     player_stats = []

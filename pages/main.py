@@ -19,7 +19,42 @@ def app():
         st.title("Analytics with FIFA 22")
         st.markdown('###### Streamlit App by [David Smiley](https://www.linkedin.com/in/david-m-smiley/)')
         st.markdown('\n \n \n')
-        st.subheader('Use the App Navigation menu on the left')
+        st.markdown('##### Use the App Navigation menu on the left')
+
+    st.markdown("***")
+
+    st.header("Applications:")
+
+    st.subheader("1) Player Comparison")
+    col1_1, col1_2 = st.columns(2)
+    with col1_1:
+        st.image("pages/images/player_comp.JPG", width=200)
+    with col1_2:
+        st.write("ipsum lorum")
+
+    st.subheader("2) League Distribution")
+    col2_1, col2_2 = st.columns(2)
+    with col2_1:
+        st.image("pages/images/league_dist.JPG", width=200)
+    with col2_2:
+        st.write("ipsum lorum")
+
+    st.subheader("3) Player Recommendation")
+    col3_1, col3_2 = st.columns(2)
+    with col3_1:
+        st.image("pages/images/player_rec.JPG", width=200)
+    with col3_2:
+        st.write("ipsum lorum")
+
+
+    st.subheader("4) Custom Recommender")
+    col4_1, col4_2 = st.columns(2)
+    with col4_1:
+        st.image("pages/images/custom_rec.JPG", width=200)
+    with col4_2:
+        st.write("ipsum lorum")
+
+    st.markdown("***")
 
     st.markdown("Partial data provided by ['FIFA 22 Complete Player Dataset'](https://www.kaggle.com/cashncarry/fifa-22-complete-player-dataset)")
     st.markdown("All other data was collected from [sofifa.com](https://sofifa.com/)")
