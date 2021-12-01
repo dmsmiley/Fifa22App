@@ -30,21 +30,24 @@ def app():
     with col1_1:
         st.image("pages/images/player_comp.JPG", width=200)
     with col1_2:
-        st.write("ipsum lorum")
+        st.markdown("###### Compare two players from FIFA 22's entire roster.")
+        st.markdown("###### Need help deciding who to compare? Use the tool on the left to find players.")
 
     st.subheader("2) League Distribution")
     col2_1, col2_2 = st.columns(2)
     with col2_1:
         st.image("pages/images/league_dist.JPG", width=200)
     with col2_2:
-        st.write("ipsum lorum")
+        st.markdown("###### See how teams within leagues compare in a selected stat.")
+        st.markdown("###### Expansion 1 allows you to select a club in the league and the stats of individual players.")
+        st.markdown("###### Expansion 2 is for comparing teams regardless of their league.")
 
     st.subheader("3) Player Recommendation")
     col3_1, col3_2 = st.columns(2)
     with col3_1:
         st.image("pages/images/player_rec.JPG", width=200)
     with col3_2:
-        st.write("ipsum lorum")
+        st.markdown("###### Uses the K-Nearest Neighbor algorithm to determine the 10 players most like your selected player.")
 
 
     st.subheader("4) Custom Recommender")
@@ -52,7 +55,7 @@ def app():
     with col4_1:
         st.image("pages/images/custom_rec.JPG", width=200)
     with col4_2:
-        st.write("ipsum lorum")
+        st.markdown("###### Like the Player Recommender app, however, you can fine tune each stat.")
 
     st.markdown("***")
 
