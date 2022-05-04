@@ -20,7 +20,7 @@ def app():
                        'CAMRating', 'LMRating', 'CMRating', 'RMRating', 'LWBRating',
                        'CDMRating', 'RWBRating', 'LBRating', 'CBRating', 'RBRating','GKRating']
 
-    league = st.selectbox('Type League: ', options=list(set([x for x in df['Club League'] if pd.isnull(x) == False])), index = 3)
+    league = st.selectbox('Type League: ', options=list(set([x for x in df['Club League'] if pd.isnull(x) == False])))
     stat = st.selectbox('Stat:', options=potential_stats)
 
     newer_df = df[df.isin([league]).any(axis=1)]
