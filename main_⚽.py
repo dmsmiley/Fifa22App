@@ -23,7 +23,9 @@ st.markdown("***")
 st.header("Applications:")
 
 st.subheader("1) Player Comparison 🤼‍♀️")
+
 col1_1, col1_2 = st.columns(2)
+
 with col1_1:
     st.image("images/player_comp.JPG", width=200)
 with col1_2:
