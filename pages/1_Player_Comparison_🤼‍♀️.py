@@ -66,6 +66,11 @@ new_df = df.loc[[player_1,player_2]][['PaceTotal','ShootingTotal', 'PassingTotal
                                         'DribblingTotal', 'DefendingTotal','PhysicalityTotal']]
 
 #Radar Chart
+
+# Customize colors for each plot
+color1 = 'rgba(0, 128, 128, 0.5)'  # Hot pink with some transparency
+color2 = 'rgba(255, 127, 80, 0.5)'   # Brown with some transparency
+
 categories = list(new_df.columns)
 
 fig = go.Figure()
@@ -73,15 +78,17 @@ fig = go.Figure()
 fig.add_trace(go.Scatterpolar(
     r=new_df.iloc[0],
     theta=categories,
-    fill='toself',
-    name=new_df.index[0]
+    fill='toself', 
+    name=new_df.index[0],
+    line=dict(color=color1)
     ))
 
 fig.add_trace(go.Scatterpolar(
     r=new_df.iloc[1],
     theta=categories,
-    fill='toself',
-    name=new_df.index[1]
+    fill='toself',  
+    name=new_df.index[1],
+    line=dict(color=color2)
     ))
 
 fig.update_layout(
