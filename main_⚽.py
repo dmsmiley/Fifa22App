@@ -22,7 +22,7 @@ st.markdown("***")
 
 st.header("Applications:")
 
-st.subheader("1) Player Comparison 🤼‍♀️")
+st.subheader("[1) Player Comparison 🤼‍♀️](https://fifa22.streamlit.app/Player_Comparison_%F0%9F%A4%BC%E2%80%8D%E2%99%80%EF%B8%8F)")
 
 col1_1, col1_2 = st.columns(2)
 
