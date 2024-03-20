@@ -17,6 +17,7 @@ with col1:
 with col2:
         st.title("Analytics with FIFA 22 ⚽")
         st.markdown('###### Streamlit App by [David Smiley](https://www.linkedin.com/in/david-m-smiley/)')
+        st.markdown('Application Tabs in the Left Panel')
 
 st.markdown("***")
 
