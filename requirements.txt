@@ -7,3 +7,4 @@ streamlit == 1.25.0
 scikit-learn == 0.24.1
 scipy == 1.6.2
 pip == 23.1.2
+inotify == 0.2.10
