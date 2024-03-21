@@ -19,11 +19,11 @@ potential_stats = ['Age', 'Height', 'Weight', 'Overall', 'Potential', 'Growth', 
                     'CAMRating', 'LMRating', 'CMRating', 'RMRating', 'LWBRating',
                     'CDMRating', 'RWBRating', 'LBRating', 'CBRating', 'RBRating','GKRating']
 
-unique_leagues = list(set([x for x in df['Club League'] if pd.isnull(x) == False]))
+#unique_leagues = list(set([x for x in df['Club League'] if pd.isnull(x) == False]))
 
 league = st.selectbox('Type League: ', 
-                      options=unique_leagues,
-                      index = unique_leagues.index("English Premier League") if "English Premier League" in unique_leagues else -1)
+                      options=list(set([x for x in df['Club League'] if pd.isnull(x) == False])))
+                      #index = unique_leagues.index("English Premier League") if "English Premier League" in unique_leagues else -1)
 
 stat = st.selectbox('Stat:', options=potential_stats)
 
